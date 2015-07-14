@@ -1,0 +1,33 @@
+extends layout
+block content
+    h1 #{title}
+
+    #content
+        #json-viewer
+
+    form#form
+        label(for='timezone') Set Time Zone via Websocket
+        input(type='number' class='form-control' id='timezone' placeholder='Enter your timezone')
+        button(type='submit' class='btn btn-default' id='btn') submit
+
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    script(type='text/javascript').
+        $(function($){
+            var socket = io.connect();
+            var $jsonViewer = $('#json-viewer');
+            var $form = $('#form');
+            var $timezone = $('#timezone');
+
+            // submit the timezone
+            $form.submit(function(e) {
+                e.preventDefault();
+                socket.emit('new timezone',{action: 'setTimezone', timezone: $timezone.val()});
+            });
+            // clear field
+            $timezone.val('');
+
+            socket.on('update', function(data) {
+              // preview the json data
+                $jsonViewer.html('<pre>' + JSON.stringify(data, null, '\t') + '</pre>'); //
+            });
+        });
