@@ -7,6 +7,9 @@
     "name": "Philipp Wahle",
     "email": "phil.wahle@student.htw-berlin.de"
   },
+  "scripts": {
+    "start": "node app.js"
+  },
   "private": "true",
   "dependencies": {
     "body-parser": "^1.12.4",
