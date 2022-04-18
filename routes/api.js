@@ -29,7 +29,7 @@ router.get('/time', function(req, res) {
     // format the timezone and return result as json
     var timeFormat =  now.format("H:mm:ss-E/MM/YYYY");
     var timezoneFormat = now.format("Z");
-    
+    res.header("Access-Control-Allow-Origin", "*");
 //     res.status(200).send(now)
     
     res.json(
