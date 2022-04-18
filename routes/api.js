@@ -30,15 +30,15 @@ router.get('/time', function(req, res) {
     var timeFormat =  now.format("H:mm:ss-E/MM/YYYY");
     var timezoneFormat = now.format("Z");
     
-    res.status(200).send(now)
+//     res.status(200).send(now)
     
-//     res.json(
-//         {
-// //             time: timeFormat ,
-//             time: now,
-//             timezone: timezoneFormat
-//         }
-//     );
+    res.json(
+        {
+//             time: timeFormat ,
+            time: now,
+            timezone: timezoneFormat
+        }
+    );
 });
 
 // Post Request
