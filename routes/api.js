@@ -32,7 +32,8 @@ router.get('/time', function(req, res) {
 
     res.json(
         {
-            time: timeFormat ,
+//             time: timeFormat ,
+            time: now,
             timezone: timezoneFormat
         }
     );
